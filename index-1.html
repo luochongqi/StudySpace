@@ -1,0 +1,436 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>第一个训练文件</title>
+<style>
+	#divAdvert{
+		position : absolute;
+		font : 12px Arial;
+		top : 4px;
+		left : 0px;
+	}
+</style>
+</head>
+
+<body>
+	<img id="img0" src="1.jpg" />
+<!--	<img id="img1" src="2.jpg" />-->
+	<div id="status"></div>
+<!--	<img src="1.jpg" onClick="changeImg(event)"/>-->
+<!--	<img src="2.jpg" onClick="changeImg(event)"/>-->
+	<div id="divAdvert">
+		Here is an advertisement.
+	</div>
+	<div id="output">
+		<h1 id="heading1">My heading</h1>
+		<p id="paragraph1">This is some text in a paragraph.</p>
+		<span>Below is table</span>
+		<table>
+			<tr>
+				<td>Row 1 Cell 1</td>
+				<td>Row 1 Cell 2</td>
+			</tr>
+		</table>
+	</div>
+	<script>
+		//单词分界匹配
+		// var myString = "Hello world!, let's look at boundraries said 007";
+		// var myRegExp = /\B/g;
+		// myString = myString.replace(myRegExp, "|");
+		// alert(myString);
+
+		//分组重用
+		// var myString = "007,007,001,002,002,003,002,004";
+		// var myRegExp = /(\d+),\1/g;
+		// myString = myString.replace(myRegExp,"ERROR");
+		// alert(myString);
+
+		//split()方法使用
+		// var myListString = "apple, 0.99, banana, 0.50, peach, 0.25, orange, 0.75";
+		// var theRegExp = /[^a-z]+/i;
+		// var myFruitArray = myListString.split(theRegExp);
+		// document.write(myFruitArray.join("<br />"));
+
+		//分组引用
+		// var myString = "2012, 2013, 2014";
+		// var myRegExp = /(\d{4})/g;
+		// myString = myString.replace(myRegExp, "the year $1");
+		// alert(myString);
+
+		//\B的使用
+		// var text = "He then said 'My name is O'Connerly, yes " + "that's right, O'Connerly'";
+		// var myRegExp = /\B'|'\B'/g;
+		// text = text.replace(myRegExp,'"');
+		// document.write("Corrected：" + text);
+
+		//search()方法使用,对于search()方法，全局匹配标记g与此无关，不起作用
+		// var myString = "Beginning JavaScript, Beginning Java 2, " + "Professional JavaScript";
+		// var myRegExp = /\bJava\b/i;
+		// alert(myString.search(myRegExp));
+
+		//match()方法使用
+		// var myString = "The year include 2012, 2013, 2014";
+		// var myRegExp = /\b\d{4}\b/g;
+		// var resultArray = myString.match(myRegExp);
+        //
+		// if(resultArray){
+		// 	for(var index in resultArray){
+		// 		alert(resultArray[index]);
+		// 	}
+		// }
+
+		//match()方法使用，HTML拆解
+		// var html = "<h2>Hello World!</h2>" +
+		// 	"<p>We love JavaScript!</p>";
+		// var myRegExp = /<[^>\r\n]+>|[^<>\r\n]+/g;
+		// var resultArray = html.match(myRegExp);
+        //
+		// document.getElementById("output").innerText = resultArray.join("\r\n");
+
+		//Date对象的世界时方法
+		// var localTime = new Date();
+        //
+		// var html = "<p>UTC Time is " + localTime.toUTCString() + "</p>";
+		// html += "Local Time is " + localTime.toLocaleString() + "</p>";
+        //
+		// html += "<p>Time Zone Offest is " + localTime.getTimezoneOffset() + "</p>";
+        //
+		// html += "<p>Using toLocalTimeString() gives: " + localTime.toLocaleTimeString() + "</p>";
+        //
+		// html += "<p>Using toTimeString() gives: " + localTime.toTimeString() + "</p>";
+        //
+		// html += "<p>Using toLocalDateString() gives: " + localTime.toLocaleDateString() + "</p>";
+        //
+		// html += "<p>Using toDateString() gives: " + localTime.toDateString() + "</p>";
+        //
+		// document.write(html);
+
+		//一次性计时器
+		// function doThisLater(){
+		// 	alert("This is later");
+		// }
+        //
+		// setTimeout(doThisLater, 3000);
+
+		//定期触发的计时器
+		// function updateTime(){
+		// 	document.getElementById("output").innerHTML = new Date();
+		// }
+        //
+		// setInterval(updateTime, 1000);
+
+		//使用navigator对象的属性geolocation
+		// function geoSuccess(position){
+		// 	var coords = position.coords;
+		// 	var latitude = coords.latitude;
+		// 	var longitude = coords.longitude;
+        //
+		// 	var message = "You're at " + latitude + "," + longitude;
+        //
+		// 	alert(message);
+		// }
+        //
+		// function geoError(errorObj){
+		// 	alert(errorObj.message);
+		// }
+        //
+		// navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+
+		//Screen对象的colorDepth属性
+		// var colorDepth = window.screen.colorDepth;
+		//
+		// switch (colorDepth){
+		// 	case 1:
+		// 	case 4:
+		// 		document.bgColor = "white";
+		// 		break;
+		// 	case 8:
+		// 	case 15:
+		// 	case 16:
+		// 		document.bgColor = "blue";
+		// 		break;
+		// 	case 24:
+		// 	case 32:
+		// 		document.bgColor = "skyblue";
+		// 		break;
+		// 	default:
+		// 		document.bgColor = "white";
+		// }
+		//
+		// document.write("Your screen supports " + colorDepth + "bit color");
+
+		//typeof的使用
+		// document.write(typeof "hello world!");
+
+		//navigator的userAgent属性
+		// document.write(navigator.userAgent + "<br />");
+		//
+		// function getBrowserName(){
+		// 	var lsBrowser = navigator.userAgent;
+		// 	if(lsBrowser.indexOf("MSIE") >= 0){
+		// 		return "MSIE";
+		// 	}else if(lsBrowser.indexOf("Firefox") >= 0){
+		// 		return "Firefox";
+		// 	}else if(lsBrowser.indexOf("Chrome") >= 0){
+		// 		return "Chrome";
+		// 	}else if(lsBrowser.indexOf("Safari") >= 0){
+		// 		return "Safari";
+		// 	}else if(lsBrowser.indexOf("Opera") >= 0){
+		// 		return "Opera";
+		// 	}else{
+		// 		return "UNKNOWN";
+		// 	}
+		// }
+		//
+		// function getBrowserVersion(){
+		// 	var ua = navigator.userAgent;
+		// 	var browser = getBrowserName();
+		// 	var findIndex = ua.indexOf(browser) + browser.length + 1;
+		// 	var browserVersion = parseFloat(ua.substring(findIndex, findIndex + 3));
+		// 	return browserVersion;
+		// }
+		//
+		// var browserName = getBrowserName();
+		// var browserVersion = getBrowserVersion();
+		//
+		// if(browserName == "MSIE"){
+		// 	if(browserVersion < 9){
+		// 		document.write("Your version of IE is too old");
+		// 	}else{
+		// 		document.write("Your version of IE is fully supported");
+		// 	}
+		// }else if(browserName == "Firefox"){
+		// 	document.write("Firefox is fully supported");
+		// }else if(browserName == "Chrome"){
+		// 	document.write("Chrome is fully supported");
+		// }else if(browserName == "Safari"){
+		// 	document.write("Safari is fully supported");
+		// }else if(browserName == "Opera"){
+		// 	document.write("Opera is fully supported");
+		// }else{
+		// 	document.write("Sorry this browser version is not supported");
+		// }
+
+		//getElementById()方法的使用
+		// alert(document.getElementById("heading1"));
+
+		//通过HTML DOM对象的style修改字号或颜色
+		// var h1Element = document.getElementById("heading1");
+		// h1Element.style.color = "skyblue";
+
+		//getElementsByTagName()方法的使用和NodeList对象的item()方法的使用
+		// var tdElement = document.getElementsByTagName("td").item(0);
+		// tdElement.style.color = "skyblue";
+
+		//getElementsByTagName()方法返回值，下标方法使用
+		// var tdElements = document.getElementsByTagName("td");
+		// for(var index in tdElements){
+		// 	tdElements[index].style.color = "red";
+		// }
+
+		//document对象的documentElement属性的使用
+		// var container = document.documentElement;
+		// alert(container.tagName);
+
+		//document十二种节点类型——文本节点
+		// var divElement = document.querySelector("h1");
+		// alert(divElement.nodeType + "  " + divElement.nodeName + "  " + divElement.nodeValue);
+		// var nextElement = divElement.firstChild;
+		// alert(nextElement.nodeType + "  " + nextElement.nodeName + "  " + nextElement.nodeValue);
+
+		//设置属性，document十二种节点类型——属性节点
+		// var pElement = document.getElementById("paragraph1");
+		// pElement.setAttribute("align", "center");
+		// alert(pElement.getAttribute("align"));
+		//
+		// var attrNode = pElement.getAttributeNode("id");
+		// alert(attrNode.nodeType);
+
+		//sibling兄弟节点的使用
+		// var pElement = document.getElementById("paragraph1");
+		// pElement.style.color = "red";
+		// var siblingElement;
+		// if(pElement.previousSibling.nodeType == 1){
+		// 	siblingElement = pElement.previousSibling;
+		// }else{
+		// 	siblingElement = pElement.previousSibling.previousSibling;
+		// }
+		// siblingElement.style.color = "red";
+
+		//使用DOM导航HTML文档
+		// var htmlElement;
+		// var headElement;
+		// var bodyElement;
+		// var h1Element;
+		// var pElement;
+		//
+		// htmlElement = document.documentElement;
+		// headElement = htmlElement.firstChild;
+		//
+		// alert(headElement.tagName);
+		//
+		// if(headElement.nextSibling.nodeType == 3){
+		// 	bodyElement = headElement.nextSibling.nextSibling;
+		// }else{
+		// 	bodyElement = headElement.nextSibling;
+		// }
+		//
+		// alert(bodyElement.tagName);
+		//
+		// if(bodyElement.firstChild.nodeType == 3){
+		// 	h1Element = bodyElement.firstChild.nextSibling;
+		// }else{
+		// 	h1Element = bodyElement.firstChild;
+		// }
+		//
+		// alert(h1Element.tagName);
+		// h1Element.style.fontFamily = "Arial";
+		//
+		// if(h1Element.nextSibling.nodeType == 3){
+		// 	pElement = h1Element.nextSibling.nextSibling;
+		// }else{
+		// 	pElement = h1Element.nextSibling;
+		// }
+		//
+		// alert(pElement.tagName);
+		// pElement.style.fontFamily = "Arial";
+		//
+		// if(pElement.previousSibling.nodeType == 3){
+		// 	h1Element = pElement.previousSibling.previousSibling;
+		// }else{
+		// 	h1Element = pElement.previousSibling;
+		// }
+		//
+		// h1Element.style.fontFamily = "Courier";
+
+		//使用DOM方法创建HTML元素和文本
+		// var newText = document.createTextNode("Due cue biu");
+		// var newElem = document.createElement("p");
+		//
+		// newElem.appendChild(newText);
+		// document.body.appendChild(newElem);
+		//
+		// newText = document.createTextNode("So why are you lone");
+		// newElem = document.createElement("h3");
+		//
+		// newElem.appendChild(newText);
+		// document.body.appendChild(newElem);
+
+		//创建动画
+		// var switchDirection = false;
+		// function doAnimation(){
+		// 	var divAdvert = document.getElementById("divAdvert");
+		// 	var currentLeft = divAdvert.offsetLeft;
+		// 	var newLocation;
+		//
+		// 	if(!switchDirection){
+		// 		newLocation = currentLeft + 1;
+		// 		if(currentLeft >= 400){
+		// 			switchDirection = true;
+		// 		}
+		// 	}else{
+		// 		newLocation = currentLeft - 1;
+		// 		if(currentLeft < 0){
+		// 			switchDirection = false;
+		// 		}
+		// 	}
+		// 	divAdvert.style.left = newLocation + "px";
+		// }
+		//
+		// setInterval(doAnimation, 50);
+
+		//用HTML属性事件处理程序显示随机图片
+		// var myImages=["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
+		//
+		// function changeImg(that){
+		// 	var newImgNumber = Math.round(Math.random() * 5);
+		//
+		// 	while(that.src.indexOf(myImages[newImgNumber]) != -1){
+		// 		newImgNumber = Math.round(Math.random() * 5);
+		// 	}
+		//
+		// 	that.src = myImages[newImgNumber];
+		// }
+
+		//用对象属性事件处理程序和Event对象显示随机图片
+		// var myImages=["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
+		//
+		// function changeImg(e){
+		// 	var e1 = e.target;
+		// 	var newImgNumber = Math.round(Math.random() * 5);
+		//
+		// 	while(e1.src.indexOf(myImages[newImgNumber]) != -1){
+		// 		newImgNumber = Math.round(Math.random() * 5);
+		// 	}
+		//
+		// 	e1.src = myImages[newImgNumber];
+		// }
+
+		//用对象属性事件处理程序显示随机图片
+		// var myImages=["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
+		//
+		// function changeImg(e){
+		// 	var e1 = e.target;
+		// 	var newImgNumber = Math.round(Math.random() * 5);
+		//
+		// 	while(e1.src.indexOf(myImages[newImgNumber]) != -1){
+		// 		newImgNumber = Math.round(Math.random() * 5);
+		// 	}
+		//
+		// 	e1.src = myImages[newImgNumber];
+		// }
+		//
+		// document.getElementById("img0").onclick = changeImg;
+		// document.getElementById("img1").onclick = changeImg;
+
+		//用标准对象处理程序显示随机图片
+		// var myImages = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
+		//
+		// function changeImg(e) {
+		// 	var e1 = e.target;
+		// 	var newImgNumber = Math.round(Math.random() * 5);
+		//
+		// 	while (e1.src.indexOf(myImages[newImgNumber]) != -1) {
+		// 		newImgNumber = Math.round(Math.random() * 5);
+		// 	}
+		//
+		// 	e1.src = myImages[newImgNumber];
+		// }
+		//
+		// document.getElementById("img0").addEventListener("click", changeImg);
+		// document.getElementById("img1").addEventListener("click", changeImg);
+
+		//添加和删除多个事件监听器
+		var myImages = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
+
+		function changeImg(e){
+			var e1 = e.target;
+			var newImgNumber = Math.round(Math.random() * 5);
+
+			while(e1.src.indexOf(myImages[newImgNumber]) != -1){
+				newImgNumber = Math.round(Math.random() * 5);
+			}
+
+			e1.src = myImages[newImgNumber];
+		}
+
+		function updateStatus(e){
+			var e1 = e.target;
+			var status = document.getElementById("status");
+
+			status.innerHTML = "The image changed to" + e1.src;
+
+			if(e1.src.indexOf("1.jpg") > -1){
+				e1.removeEventListener("click", changeImg);
+				e1.removeEventListener("click", updateStatus);
+			}
+		}
+
+		var imgObj = document.getElementById("img0");
+
+		imgObj.addEventListener("click", changeImg);
+		imgObj.addEventListener("click", updateStatus);
+	</script>
+</body>
+</html>
