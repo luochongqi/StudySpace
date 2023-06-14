@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8"/>
+    <title> StopPropagation方法的使用</title>
+    <script>
+        function doSomething(obj, evt) {
+            alert(obj.id);
+            var e = (evt) ? evt : window.event;
+            if (window.event) {
+                e.cancelBubble = true;// ie下阻止冒泡
+            } else {
+                //e.preventDefault();
+                e.stopPropagation();// 其它浏览器下阻止冒泡
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="parent1" οnclick="alert(this.id)" style="width:250px;background-color:yellow">
+    <p>This is parent1 div.</p>
+    <div id="child1" οnclick="alert(this.id)" style="width:200px;background-color:orange">
+        <p>This is child1.</p>
+    </div>
+    <p>This is parent1 div.</p>
+</div>
+<br/>
+<div id="parent2" οnclick="alert(this.id)" style="width:250px;background-color:cyan;">
+    <p>This is parent2 div.</p>
+    <div id="child2" οnclick="doSomething(this,event);" style="width:200px;background-color:lightblue;">
+        <p>This is child2. Will bubble.</p>
+    </div>
+    <p>This is parent2 div.</p>
+</div>
+</body>
+</HTML>
