@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drag：传输数据</title>
+    <style>
+        .box{
+            width : 100px;
+            height : 100px;
+        }
+        .red{
+            background-color : red;
+        }
+        .drop-zone{
+            width : 300px;
+            padding : 20px;
+            border : 2px dashed #000;
+        }
+    </style>
+</head>
+<body>
+<div id="div" draggable="true" class="box red"></div>
+<img id="image" src="1.jpg" width="100px" />
+<div id="dropZone" class="drop-zone">Drop Zone!</div>
+<div id="dropStatus"></div>
+
+<script>
+    function dragStartHandler(e){
+        e.dataTransfer.setData("text", "Drag and Drop!");
+    }
+
+    function dragDropHandler(e){
+        e.preventDefault();
+
+        if(e.type == "dragover"){
+            dropStatus.innerHTML = "You're dragging over the " + "drop zone!";
+        }else{
+            dropStatus.innerHTML = e.dataTransfer.getData("text");
+        }
+    }
+
+    var dragBox = document.querySelector("[draggable]");
+    var dropzone = document.getElementById("dropZone");
+    var dropStatus = document.getElementById("dropStatus");
+
+    dragBox.addEventListener("dragstart", dragStartHandler);
+    dropzone.addEventListener("dragover", dragDropHandler);
+    dropzone.addEventListener("drop", dragDropHandler);
+</script>
+</body>
+</html>

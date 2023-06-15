@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drage：在目标上释放对象</title>
+    <style>
+        .box{
+            width : 100px;
+            height : 100px;
+        }
+        .red{
+            background-color : red;
+        }
+        .drop-zone{
+            width : 300px;
+            padding : 20px;
+            border : 2px dashed #000;
+        }
+    </style>
+</head>
+<body>
+<div id="div" draggable="true" class="box red"></div>
+<img id="image" src="1.jpg" width="100px" />
+<div id="dropZone" class="drop-zone">Drop Zone!</div>
+<div id="dropStatus"></div>
+
+<script>
+    function dragDropHanlder(e){
+        e.preventDefault();
+
+        if(e.type == "dragover"){
+            dropStatus.innerHTML = "You're dragging over the drop zone!"
+        }else{
+            dropStatus.innerHTML = "You dropped something!";
+        }
+    }
+
+    function drag(e){
+        e.dataTransfer.setData("drag", e.target.id);
+    }
+
+    function drop(e){
+        e.preventDefault();
+        var data = e.dataTransfer.getData("drag");
+        e.target.appendChild(document.getElementById(data));
+    }
+
+    var dropZone = document.getElementById("dropZone");
+    var dropStatus = document.getElementById("dropStatus");
+    var image = document.getElementById("image");
+
+    dropZone.addEventListener("dragover", dragDropHanlder);
+    dropZone.addEventListener("drop", dragDropHanlder);
+    dropZone.addEventListener("drop", drop);
+
+    image.addEventListener("dragstart", drag);
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>测试"drop"事件</title>
+  <meta charset="UTF-8">
+  <style type="text/css">
+    #div1 {
+      width: 450px;
+      height: auto;
+      padding: 30px;
+      border: 1px solid #aaaaaa;
+    }
+
+    #div1 img {
+
+      height: 100px;
+    }
+  </style>
+  <script type="text/javascript">
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("Text", ev.target.id);
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("Text");
+      ev.target.appendChild(document.getElementById(data));
+    }
+  </script>
+</head>
+<body>
+
+<p>请把图片拖放到矩形中：</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br />
+<img id="drag1" src="1.jpg"
+     draggable="true" ondragstart="drag(event)" width="100px" />
+<img id="drag2" src="2.jpg"
+     draggable="true" ondragstart="drag(event)" width="100px" />
+<img id="dra3" src="3.jpg"
+     draggable="true" ondragstart="drag(event)" width="100px" />
+<img id="drag4" src="4.jpg"
+     draggable="true" ondragstart="drag(event)" width="100px" />
+
+</body>
+</html>
