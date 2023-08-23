@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var obj = {
+        "IFFLG": "S",
+        "IFMSG": "凭证过帐成功: BKPFF 150000321323002022 CLNT800",
+        "XBLNR": "CLBX_红太阳光电_08050",
+        "BELNR": "1500003213"
+    };
+    var json = JSON.stringify(obj);
+    var text = JSON.parse(json);
+    //var str = "text.BELNR";
+    alert(text.BELNR);
+    // var re = /({"IFFLG".+"BELNR":")(.+)("})/g;
+    // var res = json.replace(re,'$2');
+    // alert(res);
+</script>
+</body>
+</html>
