@@ -1,3 +1,11 @@
+import traceback
+a = 100
+b = a
+print(id(a))
+print(id(b))
+
+
+
 # universe_age = 1_4555_2331
 # print(universe_age)
 #
@@ -34,6 +42,18 @@
 # del guest[0]
 # print(guest)
 
-students = ['luohaoye', 'tanxinzhen', 'zhanghuiyao', 'yijiayao', 'pengrenjie']
-# students.sort(reverse=True)
-# print(students)
+
+# str = 'abcde'
+# print(str[-3:0:-1])
+# print(str[-3:0:])
+# print(str[-3:-1:])
+
+
+# num = int(input("请输入整数："))
+# print(num * '*')
+# print()
+# print('*' + ' ' * (num-2) + '*')
+# print()
+# print('*' + ' ' * (num-2) + '*')
+# print()
+# print(num * '*')
