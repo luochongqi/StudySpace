@@ -1,8 +1,31 @@
-import traceback
-a = 100
-b = a
-print(id(a))
-print(id(b))
+list1 = ['A', 'B', 'C']
+print(set(list1))
+
+
+
+
+# def fun01(a, b, c):
+#     a = 100
+#     b[0] = 200
+#     c = 300
+#
+#
+# num01 = 1
+# list01 = [2]
+# list02 = [3]
+# fun01(num01, list01, list02)
+# print(num01)
+# print(list01)
+# print(list02)
+
+
+
+
+# import traceback
+# a = 100
+# b = a
+# print(id(a))
+# print(id(b))
 
 
 
