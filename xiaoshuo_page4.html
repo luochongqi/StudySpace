@@ -1,0 +1,1432 @@
+<!doctype html>
+<html data-theme="default">
+<head>
+    <script>var name = "seo-jump-referrer";
+    try {
+        var reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)"), seoReferer = document.cookie.match(reg);
+        seoReferer && seoReferer[2] && (Object.defineProperty(document, "referrer", {value: decodeURIComponent(seoReferer[2])}), document.cookie = name + "=;domain=.qidian.com;path=/;expires=Thu, 01-Jan-1970 00:00:01 GMT")
+    } catch (a) {
+        console.log(a)
+    }
+    if (window.outerWidth <= 1024 && navigator.userAgent.match(/(Android|iPhone|SymbianOS|Windows Phone|iPad|iPod|HarmonyOS)/i) && !navigator.userAgent.match(/spider/i)) {
+        var url = getMUrl();
+        url && (location.search ? /source=m_jump/.test(location.search) ? url += location.search.replace("source=m_jump", "source=pc_jump") : /source=pc_jump/.test(location.search) ? url += location.search : url += location.search + "&source=pc_jump" : url += "?source=pc_jump", setCookie(name, document.referrer, ".qidian.com", "/", 6e4), console.log(url), window.location.href = url)
+    }
+
+    function setCookie(a, t, o, e, i) {
+        i && (i = new Date(+new Date + i));
+        var c = a + "=" + escape(t) + (i ? "; expires=" + i.toGMTString() : "") + (e ? "; path=" + e : "") + (o ? "; domain=" + o : "");
+        return c.length < 4096 && (document.cookie = c), this
+    }
+
+    function getMUrl() {
+        var a = "", t = "https://" + a + "m.qidian.com/", o = "", e = document.URL;
+        "/" === location.pathname && (o = "https://" + a + "m.qidian.com/"), "/xuanhuan/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid21/"), "/qihuan/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid1/"), "/wuxia/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid2/"), "/xianxia/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid22/"), "/dushi/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid4/"), "/xianshi/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid15/"), "/junshi/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid6/"), "/lishi/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid5/"), "/youxi/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid7/"), "/tiyu/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid8/"), "/kehuan/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid9/"), "/zhutianwuxian/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid20109/"), "/lingyi/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid10/"), "/2cy/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid12/"), "/duanpian/" === location.pathname && (o = "https://" + a + "m.qidian.com/category/catid20076/");
+        var i = location.pathname.match(/\/soushu\/(\S+|)/i);
+        if (i && (o = t + "soushu/" + i[1]), (i = e.match(/\/book\/(strongrec|sanjiang)/i)) && (o = t + i[1] + "/"), i = e.match(/\/(mm\/|)(free|finish)/i)) {
+            var c = "mm" === i[1] ? "/female" : "";
+            o = t + i[2] + c + "/"
+        }
+        if (i = e.match(/\/(mm\/|)all\/((chanId(\d+)|)(-subCateId(\d+)|)(-(\S+)|)\/|)/i)) {
+            var c = "mm/" === i[1] ? "female" : "male";
+            i[6] ? o = t + "category/catid" + i[4] + "/subcatid" + i[6] + "-" + c + "/" : i[4] && -1 == ["13100", "14300", "13700", "14100", "14400", "14500", "19100"].indexOf(i[4]) ? (c = ["80", "81", "82", "83", "84", "85", "86", "87", "88", "30083", "30120"].indexOf(i[4]) > -1 ? "/female" : "", o = t + "category/catid" + i[4] + c + "/") : o = t + "category" + (c = "mm/" === i[1] ? "/female" : "") + "/"
+        }
+        (i = e.match(/\/rank(\/mm|)(\/(yuepiao|readindex|hotsales|newfans|collect|recom|newauthor)|)/i)) && (o = t + "rank" + (c = "/mm" === i[1] ? "/female" : "") + i[2] + "/");
+        return (i = e.match(/\/dashen/i)) && (o = t + "dashen/"), (i = e.match(/\/honor\/(\d+)/)) && (o = t + "book/" + i[1] + "/badge"), (i = e.match(/\/info\/(\d+)/)) && (o = t + "book/" + i[1] + ".html", e.match(/#Catalog/) && (o = t + "book/" + i[1] + "/catalog/")), (i = e.match(/\/bookrecommend\/([A-Za-z0-9]+)/)) && (o = t + "bookrecommend/" + i[1] + "/"), (i = e.match(/\/recommendbooklist(\/p(\d+)|)/)) && (o = t + "recommendbooklist" + i[1] + "/"), (i = e.match(/\/book\/(\d+)/)) && (o = t + "book/" + i[1] + "/", e.match(/#Catalog/) && (o = t + "book/" + i[1] + "/catalog/")), (i = e.match(/\/book\/(\d+)\/catalog/)) && (o = t + "book/" + i[1] + "/catalog/"), (i = e.match(/\/booklist/)) && (o = "https://" + a + "m.qidian.com" + location.pathname), (i = e.match(/\/booklist\/detail\/(\d+)\/(\d+)/)) && (o = "https://" + a + "m.qidian.com/booklist/detail/" + i[1] + "/"), (i = e.match(/\/chapter/)) && (o = t + "chapter///"), (i = e.match(/\/lastpage\/(\d+)/)) && (o = t + "lastpage/" + i[1] + "/"), (i = e.match(/\/gm/)) && (o = "https://" + a + "m.qidian.com" + location.pathname), (i = e.match(/\/ask/)) && (o = "https://" + a + "m.qidian.com" + location.pathname), o
+    }</script>
+    <meta charset="UTF-8">
+    <title>小说收藏排行榜单_起点小说收藏排行-第4页-起点中文网</title>
+    <meta name="keywords" content="小说排行榜,小说收藏排行榜">
+    <meta name="description" content="起点中文网小说收藏排行榜单,为您提供起点中文网收藏排行榜,想看更多小说收藏排行榜,欢迎访问起点小说收藏排行榜专区。">
+    <meta name="robots" content="all">
+    <meta name="googlebot" content="all">
+    <meta name="baiduspider" content="all">
+    <meta http-equiv="mobile-agent" content="format=wml; url=https://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=https://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=html5; url=http://m.qidian.com">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit"/>
+    <script>document.domain = "qidian.com"</script>
+    <script>function setCookie(e, o, n, t, i) {
+        i && (i = new Date(+new Date + i));
+        var a = e + "=" + escape(o) + (i ? "; expires=" + i.toGMTString() : "") + (t ? "; path=" + t : "") + (n ? "; domain=" + n : "");
+        a.length < 4096 && (document.cookie = a)
+    }
+
+    function getCookie(e) {
+        var o, n = new RegExp("(^| )" + e + "=([^;]*)(;|$)");
+        return (o = document.cookie.match(n)) ? o[2] : null
+    }
+
+    function createSender(e) {
+        var o = new Image;
+        o.onload = o.onerror = function () {
+            o = null
+        }, o.src = e
+    }
+
+    1 == getCookie("tf") && setCookie("tf", 1, "qidian.com", "/", 0)</script>
+    <link data-ignore="true" rel="shortcut icon" type="image/x-icon"
+          href="//qdfepccdn.qidian.com/www.qidian.com/favicon/qd_icon.ico">
+    <link data-ignore="true" rel="Bookmark" type="image/x-icon"
+          href="//qdfepccdn.qidian.com/www.qidian.com/favicon/qd_icon.ico">
+    <meta name="servertime" content="1702434271"/>
+    <script src="https://imgservices-1252317822.image.myqcloud.com/coco/s09222022/4f2a5dd7.p6bvj2.js"></script>
+    <script>function gtag() {
+        dataLayer.push(arguments)
+    }
+
+    !function () {
+        var a = document.createElement("script");
+        a.src = "//www.googletagmanager.com/gtag/js?id=UA-199934072-2", a.async = 1;
+        var e = document.getElementsByTagName("script")[0];
+        e.parentNode.insertBefore(a, e)
+    }(), window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("config", "UA-199934072-2"), gtag("config", "G-PFYW0QLV3P")</script>
+    <script>!function (e, t, n, p, y, c, o) {
+        e.QDAnalyticsObject = y, e.yep = e.yep || function () {
+            (e.yep.q = e.yep.q || []).push(arguments)
+        }, e.yep.l = 1 * new Date, c = t.createElement(n), o = t.getElementsByTagName(n)[0], c.async = 1, c.src = "https://noah2-1252317822.file.myqcloud.com/npm/@noah-common/yep@0.0.46/dist/yep.js", o.parentNode.insertBefore(c, o)
+    }(window, document, "script", 0, "yep"), yep("set", {appid: 10038, rate: .02})</script>
+    <script>var _hmt = _hmt || [];
+    !function () {
+        var e = document.createElement("script");
+        window.location.hostname;
+        e.src = "https://hm.baidu.com/hm.js?f00f67093ce2f38f215010b699629083", e.async = 1;
+        var t = document.getElementsByTagName("script")[0];
+        t.parentNode.insertBefore(e, t)
+    }()</script>
+    <script data-ignore="true" src="//qdfepccdn.qidian.com/www.qidian.com/fock/116594983210.js"></script>
+    <script data-ignore="true" src="//qdfepccdn.qidian.com/www.qidian.com/fock/l0ir4.js"></script>
+    <script data-ignore="true" src="//qdfepccdn.qidian.com/www.qidian.com/fock/e1669345466848.js"></script>
+    <script defer="defer" src="//qdfepccdn.qidian.com/www.qidian.com/js/manifest.54ac3.bundle.js"
+            crossorigin="anonymous"></script>
+    <script defer="defer" src="//qdfepccdn.qidian.com/www.qidian.com/js/vendors.ff5d0.bundle.js"
+            crossorigin="anonymous"></script>
+    <script defer="defer"
+            src="//qdfepccdn.qidian.com/www.qidian.com/js/views/www.qidian.com/rank/hotnew.be502.bundle.js"
+            crossorigin="anonymous"></script>
+    <link href="//qdfepccdn.qidian.com/www.qidian.com/css/views/www.qidian.com/rank/hotnew.ac70e4de.css"
+          rel="stylesheet" crossorigin="anonymous">
+</head>
+<body class="rank-type-5" id="-1">
+<div class="wrap">
+    <div class="top-nav" data-l1="1">
+        <div class="box-center cf">
+            <div class="login-box fr" id="login-box">
+                <div class="sign-in hidden"><span>你好，</span><a class="black" id="user-name" href="//my.qidian.com/"
+                                                               target="_blank" data-eid="qd_A08"></a><em>|</em><a
+                        class="black" id="msg-btn" href="//my.qidian.com/message/sys/" target="_blank"
+                        data-eid="qd_A09">消息<cite id="msg-box">(<i></i>)</cite></a><em>|</em><a id="exit-btn"
+                                                                                                href="javascript:"
+                                                                                                data-eid="qd_A10">退出</a>
+                </div>
+                <div class="sign-out"><a id="login-btn" class="black" href="javascript:"
+                                         data-eid="qd_A06">登录</a><em>|</em><a id="reg-btn"
+                                                                              href="//passport.qidian.com/reg.html?appid=10&areaid=1&target=iframe&ticket=1&auto=1&autotime=30&returnUrl=https%3A%2F%2Fwww.qidian.com"
+                                                                              rel="nofollow" target="_blank"
+                                                                              data-eid="qd_A07">注册</a></div>
+            </div>
+            <div class="nav-link fl"><a class="act" href="//www.qidian.com/" data-eid="qd_A01">起点中文网</a> <a
+                    class="third-remove" href="//www.qdmm.com/" rel="nofollow" target="_blank"
+                    data-eid="qd_A02">起点女生网</a><em class="third-remove">|</em> <a href="javascript:" id="switchEl"
+                                                                                  data-eid="qd_A182">繁体版</a></div>
+        </div>
+    </div>
+    <div class="top-op-box" id="j-topOpBox"></div>
+    <div class="logo-wrap box-center" data-l1="2">
+        <div class="box-center cf">
+            <div class="book-shelf fr"><a href="//my.qidian.com/bookcase/" target="_blank" data-eid="qd_A14"><em
+                    class="iconfont shelf">&#xe60c;</em><i>我的书架</i></a></div>
+            <div class="logo fl"><a href="//www.qidian.com/" data-eid="qd_A11"></a></div>
+            <div class="search-wrap fl">
+                <form id="header2FormUrl" action="//www.qidian.com/so/"><p><input class="search-box" id="s-box"
+                                                                                  name="kw"
+                                                                                  placeholder="选择C级英雄，我被全网嘲笑三年"></p>
+                    <input class="submit-input" type="submit" id="searchSubmit" data-eid="qd_A13"> <a onclick="return!1"
+                                                                                                      href="//www.qidian.com/soushu/"><label
+                            id="search-btn" class="search-btn"><em class="iconfont"
+                                                                   data-eid="qd_A13">&#xe60d;</em></label></a></form>
+            </div>
+        </div>
+    </div>
+    <script>document.getElementById("header2FormUrl").onsubmit = function (e) {
+        e.preventDefault();
+        var t = document.getElementById("s-box").value || document.getElementById("s-box").placeholder;
+        window.open(document.getElementById("header2FormUrl").action + t + ".html")
+    }, document.getElementById("search-btn").onclick = function () {
+        var e = document.getElementById("s-box").value || document.getElementById("s-box").placeholder;
+        window.open(document.getElementById("header2FormUrl").action + e + ".html")
+    }</script>
+    <div class="main-nav-wrap" data-l1="3">
+        <div class="main-nav box-center cf" id="type-hover">
+            <div class="classify-list fl so-awesome" id="classify-list" data-l1="3">
+                <dl class="cf">
+                    <dd class="left"><a href="/xuanhuan/" title="玄幻小说" target="_blank" data-eid="qd_A71"><cite><em
+                            class="iconfont">&#xe642;</em> <span class="info"><i>玄幻</i><b>721722</b></span></cite></a>
+                    </dd>
+                    <dd><a href="/qihuan/" title="奇幻小说" target="_blank" data-eid="qd_A72"><cite><em class="iconfont">&#xe62f;</em>
+                        <span class="info"><i>奇幻 </i><b>159241</b></span></cite></a></dd>
+                    <dd class="even left"><a href="/wuxia/" title="武侠小说" target="_blank" data-eid="qd_A73"><cite><em
+                            class="iconfont">&#xe632;</em> <span class="info"><i>武侠</i><b>45378</b></span></cite></a>
+                    </dd>
+                    <dd class="even"><a href="/xianxia/" title="仙侠小说" target="_blank" data-eid="qd_A74"><cite><em
+                            class="iconfont">&#xe610;</em> <span class="info"><i>仙侠</i><b>236460</b></span></cite></a>
+                    </dd>
+                    <dd class="left"><a href="/dushi/" title="都市小说" target="_blank" data-eid="qd_A75"><cite><em
+                            class="iconfont">&#xe62c;</em> <span class="info"><i>都市</i><b>374244</b></span></cite></a>
+                    </dd>
+                    <dd><a href="/xianshi/" title="现实小说" target="_blank" data-eid="qd_A76"><cite><em class="iconfont">&#xe614;</em>
+                        <span class="info"><i>现实</i><b>43492</b></span></cite></a></dd>
+                    <dd class="even left"><a href="/junshi/" title="军事小说" target="_blank" data-eid="qd_A77"><cite><em
+                            class="iconfont">&#xe602;</em> <span class="info"><i>军事</i><b>20623</b></span></cite></a>
+                    </dd>
+                    <dd class="even"><a href="/lishi/" title="历史小说" target="_blank" data-eid="qd_A78"><cite><em
+                            class="iconfont">&#xe62d;</em> <span class="info"><i>历史</i><b>77225</b></span></cite></a>
+                    </dd>
+                    <dd class="left"><a href="/youxi/" title="游戏小说" target="_blank" data-eid="qd_A79"><cite><em
+                            class="iconfont">&#xe634;</em> <span class="info"><i>游戏</i><b>108311</b></span></cite></a>
+                    </dd>
+                    <dd><a href="/tiyu/" title="体育小说" target="_blank" data-eid="qd_A80"><cite><em class="iconfont tiyu">&#xe631;</em>
+                        <span class="info"><i>体育</i><b>9109</b></span></cite></a></dd>
+                    <dd class="even left"><a href="/kehuan/" title="科幻小说" target="_blank" data-eid="qd_A81"><cite><em
+                            class="iconfont">&#xe603;</em> <span class="info"><i>科幻</i><b>157333</b></span></cite></a>
+                    </dd>
+                    <dd class="even"><a href="/zhutianwuxian/" title="诸天无限小说" target="_blank"
+                                        data-eid="qd_A81"><cite><em class="iconfont">&#xe901;</em> <span
+                            class="info"><i>诸天无限</i><b>52280</b></span></cite></a></dd>
+                    <dd class="left"><a href="/lingyi/" title="悬疑小说" target="_blank" data-eid="qd_A82"><cite><em
+                            class="iconfont lingyi">&#xe641;</em> <span class="info"><i>悬疑</i><b>66996</b></span></cite></a>
+                    </dd>
+                    <dd><a href="/2cy/" title="轻小说" target="_blank" data-eid="qd_A84"><cite><em
+                            class="iconfont erciyuan">&#xe617;</em> <span
+                            class="info"><i>轻小说</i><b>113490</b></span></cite></a></dd>
+                </dl>
+            </div>
+            <ul>
+                <li class="first"><b><strong></strong></b><span><em> <i></i> <i></i> <i></i> </em>作品分类</span></li>
+                <li class="nav-li"><a href="//www.qidian.com/all/" data-eid="qd_A15">全部作品</a></li>
+                <li class="nav-li"><a href="//www.qidian.com/rank/" data-eid="qd_A16" class=act>排行</a></li>
+                <li class="nav-li"><a href="//www.qidian.com/finish/" data-eid="qd_A17">完本</a></li>
+                <li class="nav-li"><a href="//www.qidian.com/free/" data-eid="qd_A18">免费</a></li>
+                <li class="nav-li"><a class="third-remove" href="https://write.qq.com/?siteid=1" target="_blank"
+                                      data-eid="qd_A19">作家专区</a></li>
+                <li class="nav-li"><a href="//www.qidian.com/soushu/" target="_blank" data-eid="qd_A13">搜索</a></li>
+                <li class="nav-li"><a href="//www.qdmm.com/" target="_blank" data-eid="qd_A83">女生网</a></li>
+                <li class="nav-li"><a class="third-remove" href="https://www.yuewen.com/app.html#appqd" target="_blank"
+                                      data-eid="qd_A20"><b class="iconfont client">&#xe604;</b>客户端</a></li>
+                <li class="game web" id="game-web"><a class="web-game"
+                                                      href="https://game.qidian.com?qd_game_key=qdzw_homepage_Topbar"
+                                                      rel="nofollow" target="_blank" data-eid="qd_A21"><b
+                        class="iconfont">&#xe60b;</b>页游</a>
+                    <div class="game-dropdown hidden" id="web-dropdown"><cite></cite>
+                        <div class="web-game-list">
+                            <dl class="lately" id="lately">
+                                <dt>最近玩过</dt>
+                                <dd data-rid="1"><a class="name" href="javascript:" target="_blank"
+                                                    data-eid="qd_A29"></a><strong></strong><a class="link"
+                                                                                              href="javascript:"
+                                                                                              target="_blank"
+                                                                                              data-eid="qd_A29">GO<i>&gt;</i></a>
+                                </dd>
+                                <dd data-rid="2"><a class="name" href="javascript:" target="_blank"
+                                                    data-eid="qd_A30"></a><strong></strong><a class="link"
+                                                                                              href="javascript:"
+                                                                                              target="_blank"
+                                                                                              data-eid="qd_A30">GO<i>&gt;</i></a>
+                                </dd>
+                            </dl>
+                            <dl class="web-list" id="log-web-list">
+                                <dt>今日开服</dt>
+                                <dd class="act" data-rid="1"><h3><span></span> <i>12-13</i><a
+                                        href="https://game.qidian.com/CpGameHome/ServerList/list/name/bzsc2?qd_game_key=1-991001"
+                                        data-eid="qd_A31" target="_blank">起点百战沙城</a><strong>822区</strong></h3>
+                                    <p>
+                                        <a href="https://game.qidian.com/CpGameHome/ServerList/list/name/bzsc2?qd_game_key=1-991001"
+                                           data-eid="qd_A31" target="_blank"><img
+                                                src="//gameimg.qidian.com/v1/webgame/game2/bzsc2/bzsc2192x46.jpg"><i
+                                                class="op-tag"></i></a></p></dd>
+                                <dd data-rid="2"><h3><span></span> <i>12-13</i><a
+                                        href="https://game.qidian.com/CpGameHome/ServerList/list/name/cqbz?qd_game_key=1-991001"
+                                        data-eid="qd_A32" target="_blank">传奇霸主</a><strong>773区</strong></h3>
+                                    <p>
+                                        <a href="https://game.qidian.com/CpGameHome/ServerList/list/name/cqbz?qd_game_key=1-991001"
+                                           data-eid="qd_A32" target="_blank"><img
+                                                src="//gameimg.qidian.com/v1/webgame/game2/cqbz/cqbz192x46.jpg"><i
+                                                class="op-tag"></i></a></p></dd>
+                                <dd data-rid="3"><h3><span></span> <i>12-13</i><a
+                                        href="https://game.qidian.com/CpGameHome/ServerList/list/name/sgqjz22?qd_game_key=1-991001"
+                                        data-eid="qd_A33" target="_blank">三国群将传</a><strong>155区</strong></h3>
+                                    <p>
+                                        <a href="https://game.qidian.com/CpGameHome/ServerList/list/name/sgqjz22?qd_game_key=1-991001"
+                                           data-eid="qd_A33" target="_blank"><img
+                                                src="//gameimg.qidian.com/v1/webgame/game2/sgqjz22/sgqjz22192x46.jpg"><i
+                                                class="op-tag"></i></a></p></dd>
+                                <dd data-rid="4"><h3><span></span> <i>12-13</i><a
+                                        href="https://game.qidian.com/CpGameHome/ServerList/list/name/sgcs?qd_game_key=1-991001"
+                                        data-eid="qd_A34" target="_blank">上古传说</a><strong>283区</strong></h3>
+                                    <p>
+                                        <a href="https://game.qidian.com/CpGameHome/ServerList/list/name/sgcs?qd_game_key=1-991001"
+                                           data-eid="qd_A34" target="_blank"><img
+                                                src="//gameimg.qidian.com/v1/webgame/game2/sgcs/sgcs192x46.jpg"><i
+                                                class="op-tag"></i></a></p></dd>
+                                <dd data-rid="5"><h3><span></span> <i>12-13</i><a
+                                        href="https://game.qidian.com/CpGameHome/ServerList/list/name/cqss2?qd_game_key=1-991001"
+                                        data-eid="qd_A35" target="_blank">传奇盛世2</a><strong>195区</strong></h3>
+                                    <p>
+                                        <a href="https://game.qidian.com/CpGameHome/ServerList/list/name/cqss2?qd_game_key=1-991001"
+                                           data-eid="qd_A35" target="_blank"><img
+                                                src="//gameimg.qidian.com/v1/webgame/game2/cqss2/cqss2192x46.jpg"><i
+                                                class="op-tag"></i></a></p></dd>
+                                <dd data-rid="6"><h3><span></span> <i>12-13</i><a
+                                        href="https://game.qidian.com/CpGameHome/ServerList/list/name/jw?qd_game_key=1-991001"
+                                        data-eid="qd_A36" target="_blank">剑舞</a><strong>6区</strong></h3>
+                                    <p>
+                                        <a href="https://game.qidian.com/CpGameHome/ServerList/list/name/jw?qd_game_key=1-991001"
+                                           data-eid="qd_A36" target="_blank"><img
+                                                src="//gameimg.qidian.com/v1/webgame/game2/jw/jw192x46.jpg"><i
+                                                class="op-tag"></i></a></p></dd>
+                                <dd data-rid="7"><h3><span></span> <i>12-13</i><a
+                                        href="https://game.qidian.com/CpGameHome/ServerList/list/name/wzzx22?qd_game_key=1-991001"
+                                        data-eid="qd_A37" target="_blank">王者之心2</a><strong>426区</strong></h3>
+                                    <p>
+                                        <a href="https://game.qidian.com/CpGameHome/ServerList/list/name/wzzx22?qd_game_key=1-991001"
+                                           data-eid="qd_A37" target="_blank"><img
+                                                src="//gameimg.qidian.com/v1/webgame/game2/wzzx22/wzzx22192x46.jpg"><i
+                                                class="op-tag"></i></a></p></dd>
+                            </dl>
+                            <div class="bottom"><p><a
+                                    href="https://game.qidian.com/Home/SyGame/syTopList?qd_game_key=pch5&amp;qd_dd_p1=124"
+                                    data-eid="qd_A38" target="_blank"><img
+                                    src="//bossaudioandcomic-1252317822.image.myqcloud.com/activity/document/f293b1cd7eb1f676af36d22c2ca6a191.gif"><span
+                                    class="op-tag"></span></a></p></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="display:none"><span>  <a href="//www.qidian.com/">首页</a>   <em class="iconfont">&#xe621;</em>  <h1>小说收藏排行榜</h1>   </span>
+    </div>
+    <div class="rank-box box-center cf">
+        <div class="rank-nav-list fl" data-l1="4">
+            <ul>
+                <li class=""><a href="//www.qidian.com/rank/" data-eid="qd_C01">人气榜单</a><cite></cite></li>
+            </ul>
+            <p class="line"></p><h4>热门作品排行</h4>
+            <ul class="list_type_detective">
+                <li class=""><a href="//www.qidian.com/rank/yuepiao/" data-eid="qd_C19">月票榜</a><cite></cite></li>
+                <li class=""><a href="//www.qidian.com/rank/hotsales/" data-eid="qd_C03">畅销榜</a><cite></cite></li>
+                <li class=""><a href="//www.qidian.com/rank/readindex/" data-eid="qd_C68">阅读指数榜</a><cite></cite></li>
+                <li class=""><a href="//www.qidian.com/rank/newfans/" data-eid="qd_C69">书友榜</a><cite></cite></li>
+                <li class=""><a href="//www.qidian.com/rank/recom/" data-eid="qd_C05">推荐榜</a><cite></cite></li>
+                <li class="act"><a href="//www.qidian.com/rank/collect/" data-eid="qd_C06">收藏榜</a><cite></cite></li>
+                <li class=""><a href="//www.qidian.com/rank/vipup/" data-eid="qd_C07">更新榜</a><cite></cite></li>
+                <li class=""><a href="//www.qidian.com/rank/vipcollect/" data-eid="qd_C08">VIP收藏榜</a><cite></cite></li>
+            </ul>
+            <p class="line"></p><h4>新书排行</h4>
+            <ul class="list_type_detective">
+                <li class=""><a href="//www.qidian.com/rank/signnewbook/" data-eid="qd_C11">签约作者新书榜</a><cite></cite>
+                </li>
+                <li class=""><a href="//www.qidian.com/rank/pubnewbook/" data-eid="qd_C12">公众作者新书榜</a><cite></cite></li>
+                <li class=""><a href="//www.qidian.com/rank/newsign/" data-eid="qd_C13">新人签约新书榜</a><cite></cite></li>
+                <li class=""><a href="//www.qidian.com/rank/newauthor/" data-eid="qd_C14">新人作者新书榜</a><cite></cite></li>
+            </ul>
+            <p class="line"></p><h4>其他排行</h4>
+            <ul>
+                <li><a href="//www.qidian.com/rank/mm/" data-eid="qd_C16">女生精选榜</a></li>
+                <li><a href="//www.qidian.com/rank/mm/yuepiao/" data-eid="qd_C17">女生月票榜</a></li>
+            </ul>
+        </div>
+        <div class="main-content-wrap fl" data-l1="5">
+            <div class="rank-header"><h3 class="lang">收藏榜<span>历史总作品收藏数排行</span></h3>
+                <div class="rank-toolbar-wrap notimebox">
+                    <div class="tool-box">
+                        <div class="btn-box cf">
+                            <div class="view-mode" id="view-mode"><a class="img-text iconfont act" id=""
+                                                                     href="javascript:;"
+                                                                     data-eid="qd_C35">&#xe62b;</a><em>|</em><a
+                                    class="only-text iconfont " href="javascript:;" data-eid="qd_C36">&#xe61a;</a></div>
+                            <div class="type-list"><p><a data-chanid="-1" class="act" href="javascript:"
+                                                         data-eid="qd_C20">全部分类</a><em>&#183;</em> <a data-chanid="21"
+                                                                                                      class=""
+                                                                                                      href="javascript:"
+                                                                                                      data-eid="qd_C21">玄幻</a><em>&#183;</em>
+                                <a data-chanid="1" class="" href="javascript:" data-eid="qd_C22">奇幻</a><em>&#183;</em>
+                                <a data-chanid="2" class="" href="javascript:" data-eid="qd_C23">武侠</a><em>&#183;</em>
+                                <a data-chanid="22" class="" href="javascript:" data-eid="qd_C24">仙侠</a><em>&#183;</em>
+                                <a data-chanid="4" class="" href="javascript:" data-eid="qd_C25">都市</a><em>&#183;</em>
+                                <a data-chanid="15" class="" href="javascript:" data-eid="qd_C26">现实</a><em>&#183;</em>
+                                <a data-chanid="6" class="" href="javascript:" data-eid="qd_C27">军事</a><em>&#183;</em>
+                                <a data-chanid="5" class="" href="javascript:" data-eid="qd_C28">历史</a><em>&#183;</em>
+                                <a data-chanid="7" class="" href="javascript:" data-eid="qd_C29">游戏</a><em>&#183;</em>
+                                <a data-chanid="8" class="" href="javascript:" data-eid="qd_C30">体育</a><em>&#183;</em>
+                                <a data-chanid="9" class="" href="javascript:" data-eid="qd_C31">科幻</a><em>&#183;</em>
+                                <a data-chanid="20109" class="" href="javascript:"
+                                   data-eid="qd_C31">诸天无限</a><em>&#183;</em> <a data-chanid="10" class=""
+                                                                                href="javascript:"
+                                                                                data-eid="qd_C32">悬疑</a><em>&#183;</em>
+                                <a data-chanid="12" class="" href="javascript:" data-eid="qd_C33">轻小说</a></p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rank-body">
+                <div class="rank-view-list" id="rank-view-list">
+                    <div class="book-img-text" id="book-img-text">
+                        <ul>
+                            <li data-rid="1">
+                                <div class="book-img-box"><span class="rank-tag no61 ">61<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1025325411/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1025325411"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1025325411/150.webp"
+                                        alt="稳住别浪在线阅读"></a></div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1025325411/"
+                                                                  target="_blank" data-eid="qd_C40"
+                                                                  data-bid="1025325411" title="稳住别浪最新章节在线阅读">稳住别浪</a>
+                                </h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/4362305/" target="_blank"
+                                            data-eid="qd_C41">跳舞</a><em>|</em><a href="//www.qidian.com/dushi"
+                                                                                 target="_blank"
+                                                                                 data-eid="qd_C42">都市</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="4" data-subtypeid="16"
+                                            href="//www.qidian.com/all/chanId4-subCateId16/"
+                                            data-eid="qd_B61">都市异能</a><em>|</em><span>连载</span></p>
+                                    <p class="intro"> 天堂打烊，地狱满员。所以，我留在人间当祸害呀…… </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1025325411/757736085/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1025325411"
+                                                         data-cid="//vipreader.qidian.com/chapter/1025325411/757736085/">最新更新
+                                        第五百三十章 【杀死种子的办法】</a><em>&#183;</em><span>2023-06-21 23:18</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100297;&#100302;&#100299;&#100301;&#100297;&#100299;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1025325411/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1025325411">书籍详情</a>
+                                        <a class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                           data-bookid="1025325411" data-bid="1025325411">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="2">
+                                <div class="book-img-box"><span class="rank-tag no62 ">62<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1032822816/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1032822816"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1032822816/150.webp" alt="家父汉高祖在线阅读"></a>
+                                </div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1032822816/"
+                                                                  target="_blank" data-eid="qd_C40"
+                                                                  data-bid="1032822816" title="家父汉高祖最新章节在线阅读">家父汉高祖</a>
+                                </h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/403414665/" target="_blank"
+                                            data-eid="qd_C41">历史系之狼</a><em>|</em><a href="//www.qidian.com/lishi"
+                                                                                    target="_blank"
+                                                                                    data-eid="qd_C42">历史</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="5" data-subtypeid="48"
+                                            href="//www.qidian.com/all/chanId5-subCateId48/"
+                                            data-eid="qd_B61">秦汉三国</a><em>|</em><span>连载</span></p>
+                                    <p class="intro">
+                                        新书《衣冠不南渡》火热连载中，求支持！…………一个伟大的帝国刚刚诞生，新的时代即将到来。刘长也曾想过要不要争一争那大位，由自己来率领这个崭新的帝国，可是他看了看自己的周围，刘邦，吕 </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1032822816/762576259/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1032822816"
+                                                         data-cid="//vipreader.qidian.com/chapter/1032822816/762576259/">最新更新
+                                        新书《衣冠不南渡》预热</a><em>&#183;</em><span>2023-08-08 18:13</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100297;&#100302;&#100301;&#100303;&#100297;&#100302;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1032822816/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1032822816">书籍详情</a>
+                                        <a class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                           data-bookid="1032822816" data-bid="1032822816">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="3">
+                                <div class="book-img-box"><span class="rank-tag no63 ">63<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1012284323/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1012284323"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1012284323/150.webp"
+                                        alt="我有一座冒险屋在线阅读"></a></div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1012284323/"
+                                                                  target="_blank" data-eid="qd_C40"
+                                                                  data-bid="1012284323"
+                                                                  title="我有一座冒险屋最新章节在线阅读">我有一座冒险屋</a></h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/402573440/" target="_blank"
+                                            data-eid="qd_C41">我会修空调</a><em>|</em><a href="//www.qidian.com/lingyi"
+                                                                                    target="_blank"
+                                                                                    data-eid="qd_C42">悬疑</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="10" data-subtypeid="57"
+                                            href="//www.qidian.com/all/chanId10-subCateId57/" data-eid="qd_B61">侦探推理</a><em>|</em><span>完本</span>
+                                    </p>
+                                    <p class="intro">
+                                        【本作品简体实体书由次元书馆出版】陈歌继承了失踪父母留下的冒险屋，无奈生意萧条，直到整理冒险屋时意外发现的手机改变了这一切。只要完成手机每日布置的不同难度的任务，冒险屋就能得到修缮 </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1012284323/612080729/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1012284323"
+                                                         data-cid="//vipreader.qidian.com/chapter/1012284323/612080729/">最新更新
+                                        番外 你的声音</a><em>&#183;</em><span>2020-11-22 21:03</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100297;&#100302;&#100300;&#100298;&#100302;&#100300;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1012284323/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1012284323">书籍详情</a>
+                                        <a class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                           data-bookid="1012284323" data-bid="1012284323">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="4">
+                                <div class="book-img-box"><span class="rank-tag no64 ">64<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1031581171/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1031581171"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1031581171/150.webp" alt="宇宙职业选手在线阅读"></a>
+                                </div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1031581171/"
+                                                                  target="_blank" data-eid="qd_C40"
+                                                                  data-bid="1031581171"
+                                                                  title="宇宙职业选手最新章节在线阅读">宇宙职业选手</a></h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/4362096/" target="_blank"
+                                            data-eid="qd_C41">我吃西红柿</a><em>|</em><a href="//www.qidian.com/kehuan"
+                                                                                    target="_blank"
+                                                                                    data-eid="qd_C42">科幻</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="9" data-subtypeid="25"
+                                            href="//www.qidian.com/all/chanId9-subCateId25/"
+                                            data-eid="qd_B61">未来世界</a><em>|</em><span>连载</span></p>
+                                    <p class="intro">
+                                        继《莽荒纪》《吞噬星空》《盘龙》《雪鹰领主》《星辰变》等之后，番茄的第11本小说。——融入宇宙文明后，家乡星球为了生存，步履蹒跚地在文明之路上前行。而星球上无数人类，也开始了进化之 </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1031581171/758253559/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1031581171"
+                                                         data-cid="//vipreader.qidian.com/chapter/1031581171/758253559/">最新更新
+                                        第十二篇 第30章 一切的起源（大结局）</a><em>&#183;</em><span>2023-06-27 04:19</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100297;&#100300;&#100303;&#100297;&#100303;&#100300;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1031581171/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1031581171">书籍详情</a>
+                                        <a class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                           data-bookid="1031581171" data-bid="1031581171">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="5">
+                                <div class="book-img-box"><span class="rank-tag no65 ">65<cite></cite></span> <a
+                                        href="//www.qidian.com/book/2048120/" target="_blank" data-eid="qd_C39"
+                                        data-bid="2048120"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/2048120/150.webp" alt="武动乾坤在线阅读"></a>
+                                </div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/2048120/" target="_blank"
+                                                                  data-eid="qd_C40" data-bid="2048120"
+                                                                  title="武动乾坤最新章节在线阅读">武动乾坤</a></h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/1019021/" target="_blank"
+                                            data-eid="qd_C41">天蚕土豆</a><em>|</em><a href="//www.qidian.com/xuanhuan"
+                                                                                   target="_blank"
+                                                                                   data-eid="qd_C42">玄幻</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="21" data-subtypeid="8"
+                                            href="//www.qidian.com/all/chanId21-subCateId8/"
+                                            data-eid="qd_B61">东方玄幻</a><em>|</em><span>完本</span></p>
+                                    <p class="intro"> 修炼一途，乃窃阴阳，夺造化，转涅盘，握生死，掌轮回。武之极，破苍穹，动乾坤！ </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/2048120/46403166/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="2048120"
+                                                         data-cid="//vipreader.qidian.com/chapter/2048120/46403166/">最新更新
+                                        新书大主宰已发。</a><em>&#183;</em><span>2013-07-03 11:18</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100303;&#100306;&#100300;&#100300;&#100303;&#100306;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/2048120/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="2048120">书籍详情</a> <a
+                                            class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                            data-bookid="2048120" data-bid="2048120">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="6">
+                                <div class="book-img-box"><span class="rank-tag no66 ">66<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1034269304/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1034269304"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1034269304/150.webp"
+                                        alt="我的姐夫是太子在线阅读"></a></div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1034269304/"
+                                                                  target="_blank" data-eid="qd_C40"
+                                                                  data-bid="1034269304"
+                                                                  title="我的姐夫是太子最新章节在线阅读">我的姐夫是太子</a></h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/2438700/" target="_blank"
+                                            data-eid="qd_C41">上山打老虎额</a><em>|</em><a href="//www.qidian.com/lishi"
+                                                                                     target="_blank" data-eid="qd_C42">历史</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="5" data-subtypeid="224"
+                                            href="//www.qidian.com/all/chanId5-subCateId224/" data-eid="qd_B61">两宋元明</a><em>|</em><span>完本</span>
+                                    </p>
+                                    <p class="intro"> 明朝永乐年间。张安世不学无术，罪恶滔天。他的姐夫是太子？噢，那没事了！ </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1034269304/763025592/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1034269304"
+                                                         data-cid="//vipreader.qidian.com/chapter/1034269304/763025592/">最新更新
+                                        第六百零三章：天下太平《全书完》</a><em>&#183;</em><span>2023-08-14 12:02</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100303;&#100295;&#100299;&#100300;&#100301;&#100302;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1034269304/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1034269304">书籍详情</a>
+                                        <a class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                           data-bookid="1034269304" data-bid="1034269304">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="7">
+                                <div class="book-img-box"><span class="rank-tag no67 ">67<cite></cite></span> <a
+                                        href="//www.qidian.com/book/68223/" target="_blank" data-eid="qd_C39"
+                                        data-bid="68223"><img src="//bookcover.yuewen.com/qdbimg/349573/68223/150.webp"
+                                                              alt="盗墓笔记在线阅读"></a></div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/68223/" target="_blank"
+                                                                  data-eid="qd_C40" data-bid="68223"
+                                                                  title="盗墓笔记最新章节在线阅读">盗墓笔记</a></h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/4490430/" target="_blank"
+                                            data-eid="qd_C41">南派三叔</a><em>|</em><a href="//www.qidian.com/lingyi"
+                                                                                   target="_blank"
+                                                                                   data-eid="qd_C42">悬疑</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="10" data-subtypeid="260"
+                                            href="//www.qidian.com/all/chanId10-subCateId260/"
+                                            data-eid="qd_B61">探险生存</a><em>|</em><span>完本</span></p>
+                                    <p class="intro">
+                                        热播剧《怒海潜沙》原著小说。50年前由长沙土夫子（盗墓贼）出土的战国帛书，记载了一个奇特战国古墓的位置，50年后，其中一个土夫子的孙子在他的笔记中发现这个秘密，纠集了一批经验丰富的 </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/68223/737491143/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="68223"
+                                                         data-cid="//vipreader.qidian.com/chapter/68223/737491143/">最新更新
+                                        《盗墓笔记》番外连载时间来了</a><em>&#183;</em><span>2022-11-29 17:03</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100303;&#100304;&#100299;&#100306;&#100301;&#100295;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/68223/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="68223">书籍详情</a> <a
+                                            class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                            data-bookid="68223" data-bid="68223">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="8">
+                                <div class="book-img-box"><span class="rank-tag no68 ">68<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1021635590/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1021635590"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1021635590/150.webp"
+                                        alt="这个人仙太过正经在线阅读"></a></div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1021635590/"
+                                                                  target="_blank" data-eid="qd_C40"
+                                                                  data-bid="1021635590" title="这个人仙太过正经最新章节在线阅读">这个人仙太过正经</a>
+                                </h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/401199896/" target="_blank"
+                                            data-eid="qd_C41">言归正传</a><em>|</em><a href="//www.qidian.com/xianxia"
+                                                                                   target="_blank"
+                                                                                   data-eid="qd_C42">仙侠</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="22" data-subtypeid="18"
+                                            href="//www.qidian.com/all/chanId22-subCateId18/" data-eid="qd_B61">修真文明</a><em>|</em><span>完本</span>
+                                    </p>
+                                    <p class="intro">
+                                        半神之躯，比肩凡人！正经人仙，山海薅神！（正经版简介）天高九万里，地有无尽国。人道多不易，山海尽荒泽。【普一群：1071059242，普二群：1041155628，全订V群已开，在 </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1021635590/771838892/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1021635590"
+                                                         data-cid="//vipreader.qidian.com/chapter/1021635590/771838892/">最新更新
+                                        人仙动漫已于哔哩哔哩播出~</a><em>&#183;</em><span>2023-11-07 18:26</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100303;&#100298;&#100306;&#100302;&#100300;&#100297;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1021635590/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1021635590">书籍详情</a>
+                                        <a class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                           data-bookid="1021635590" data-bid="1021635590">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="9">
+                                <div class="book-img-box"><span class="rank-tag no69 ">69<cite></cite></span> <a
+                                        href="//www.qidian.com/book/2517792/" target="_blank" data-eid="qd_C39"
+                                        data-bid="2517792"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/2517792/150.webp"
+                                        alt="斗罗大陆II绝世唐门在线阅读"></a></div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/2517792/" target="_blank"
+                                                                  data-eid="qd_C40" data-bid="2517792"
+                                                                  title="斗罗大陆II绝世唐门最新章节在线阅读">斗罗大陆II绝世唐门</a></h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/4921/" target="_blank"
+                                            data-eid="qd_C41">唐家三少</a><em>|</em><a href="//www.qidian.com/xuanhuan"
+                                                                                   target="_blank"
+                                                                                   data-eid="qd_C42">玄幻</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="21" data-subtypeid="73"
+                                            href="//www.qidian.com/all/chanId21-subCateId73/" data-eid="qd_B61">异世大陆</a><em>|</em><span>完本</span>
+                                    </p>
+                                    <p class="intro">
+                                        大陆传奇，一战成名；凤凰圣女，风火流星神界刀法；双升融合，金阳蓝月，雷霆之怒，这里没有魔法，没有斗气，没有武术，却有武魂。唐门创立万年之后的斗罗大陆上，唐门式微。一代天骄横空出世， </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/2517792/76735937/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="2517792"
+                                                         data-cid="//vipreader.qidian.com/chapter/2517792/76735937/">最新更新
+                                        第六百二十二章 大结局</a><em>&#183;</em><span>2014-12-19 17:01</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100303;&#100301;&#100304;&#100295;&#100300;&#100302;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/2517792/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="2517792">书籍详情</a> <a
+                                            class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                            data-bookid="2517792" data-bid="2517792">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="10">
+                                <div class="book-img-box"><span class="rank-tag no70 ">70<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1016150754/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1016150754"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1016150754/150.webp"
+                                        alt="亏成首富从游戏开始在线阅读"></a></div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1016150754/"
+                                                                  target="_blank" data-eid="qd_C40"
+                                                                  data-bid="1016150754" title="亏成首富从游戏开始最新章节在线阅读">亏成首富从游戏开始</a>
+                                </h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/10454296/" target="_blank"
+                                            data-eid="qd_C41">青衫取醉</a><em>|</em><a href="//www.qidian.com/youxi"
+                                                                                   target="_blank"
+                                                                                   data-eid="qd_C42">游戏</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="7" data-subtypeid="20102"
+                                            href="//www.qidian.com/all/chanId7-subCateId20102/"
+                                            data-eid="qd_B61">游戏系统</a><em>|</em><span>完本</span></p>
+                                    <p class="intro">
+                                        《亏成首富从游戏开始》实体书已上架众筹！！漫画已在火热连载中！！近日，特约记者对腾达集团总裁裴谦做了专访。腾达集团目前估值已达千亿级别，业务涉及游戏、互联网、数码硬件、文化传媒、餐 </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1016150754/736918044/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1016150754"
+                                                         data-cid="//vipreader.qidian.com/chapter/1016150754/736918044/">最新更新
+                                        番外预告</a><em>&#183;</em><span>2022-11-25 15:46</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100303;&#100301;&#100300;&#100302;&#100301;&#100304;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1016150754/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1016150754">书籍详情</a>
+                                        <a class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                           data-bookid="1016150754" data-bid="1016150754">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="11">
+                                <div class="book-img-box"><span class="rank-tag no71 ">71<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1029160231/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1029160231"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1029160231/150.webp" alt="大魏读书人在线阅读"></a>
+                                </div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1029160231/"
+                                                                  target="_blank" data-eid="qd_C40"
+                                                                  data-bid="1029160231" title="大魏读书人最新章节在线阅读">大魏读书人</a>
+                                </h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/430642077/" target="_blank"
+                                            data-eid="qd_C41">七月未时</a><em>|</em><a href="//www.qidian.com/xianxia"
+                                                                                   target="_blank"
+                                                                                   data-eid="qd_C42">仙侠</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="22" data-subtypeid="20101"
+                                            href="//www.qidian.com/all/chanId22-subCateId20101/"
+                                            data-eid="qd_B61">古典仙侠</a><em>|</em><span>完本</span></p>
+                                    <p class="intro">
+                                        武昌元年。大魏王朝，历经七次北伐而败，国库空虚，民不聊生，又逢先帝驾崩。而后，女帝登基，日月当空。此时，天下妖魔横出，为祸人间。大魏藩王蠢蠢欲动，朝堂涌动不安，异族番邦虎视眈眈。也 </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1029160231/744800810/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1029160231"
+                                                         data-cid="//vipreader.qidian.com/chapter/1029160231/744800810/">最新更新
+                                        新书已发！【儒剑仙】</a><em>&#183;</em><span>2023-02-19 16:12</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100304;&#100302;&#100306;&#100298;&#100298;&#100304;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1029160231/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1029160231">书籍详情</a>
+                                        <a class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                           data-bookid="1029160231" data-bid="1029160231">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="12">
+                                <div class="book-img-box"><span class="rank-tag no72 ">72<cite></cite></span> <a
+                                        href="//www.qidian.com/book/2083259/" target="_blank" data-eid="qd_C39"
+                                        data-bid="2083259"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/2083259/150.webp" alt="将夜在线阅读"></a>
+                                </div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/2083259/" target="_blank"
+                                                                  data-eid="qd_C40" data-bid="2083259"
+                                                                  title="将夜最新章节在线阅读">将夜</a></h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/4362908/" target="_blank"
+                                            data-eid="qd_C41">猫腻</a><em>|</em><a href="//www.qidian.com/xuanhuan"
+                                                                                 target="_blank"
+                                                                                 data-eid="qd_C42">玄幻</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="21" data-subtypeid="8"
+                                            href="//www.qidian.com/all/chanId21-subCateId8/"
+                                            data-eid="qd_B61">东方玄幻</a><em>|</em><span>完本</span></p>
+                                    <p class="intro"> 与天斗，其乐无穷。…… </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/2083259/53300777/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="2083259"
+                                                         data-cid="//vipreader.qidian.com/chapter/2083259/53300777/">最新更新
+                                        汇报三件事情</a><em>&#183;</em><span>2014-05-04 21:57</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100304;&#100302;&#100297;&#100304;&#100297;&#100306;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/2083259/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="2083259">书籍详情</a> <a
+                                            class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                            data-bookid="2083259" data-bid="2083259">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="13">
+                                <div class="book-img-box"><span class="rank-tag no73 ">73<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1028520538/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1028520538"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1028520538/150.webp" alt="朕在线阅读"></a>
+                                </div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1028520538/"
+                                                                  target="_blank" data-eid="qd_C40"
+                                                                  data-bid="1028520538" title="朕最新章节在线阅读">朕</a></h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/3524522/" target="_blank"
+                                            data-eid="qd_C41">王梓钧</a><em>|</em><a href="//www.qidian.com/lishi"
+                                                                                  target="_blank"
+                                                                                  data-eid="qd_C42">历史</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="5" data-subtypeid="224"
+                                            href="//www.qidian.com/all/chanId5-subCateId224/" data-eid="qd_B61">两宋元明</a><em>|</em><span>完本</span>
+                                    </p>
+                                    <p class="intro"> 回到明末，沦落为奴。这皇帝，乞丐做得，建奴做得，流寇做得，家奴就做不得？ </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1028520538/743250777/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1028520538"
+                                                         data-cid="//vipreader.qidian.com/chapter/1028520538/743250777/">最新更新
+                                        新书《北宋穿越指南》已发布</a><em>&#183;</em><span>2023-02-02 13:31</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100304;&#100299;&#100306;&#100297;&#100306;&#100303;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1028520538/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1028520538">书籍详情</a>
+                                        <a class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                           data-bookid="1028520538" data-bid="1028520538">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="14">
+                                <div class="book-img-box"><span class="rank-tag no74 ">74<cite></cite></span> <a
+                                        href="//www.qidian.com/book/3513193/" target="_blank" data-eid="qd_C39"
+                                        data-bid="3513193"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/3513193/150.webp" alt="雪鹰领主在线阅读"></a>
+                                </div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/3513193/" target="_blank"
+                                                                  data-eid="qd_C40" data-bid="3513193"
+                                                                  title="雪鹰领主最新章节在线阅读">雪鹰领主</a></h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/4362096/" target="_blank"
+                                            data-eid="qd_C41">我吃西红柿</a><em>|</em><a href="//www.qidian.com/xuanhuan"
+                                                                                    target="_blank"
+                                                                                    data-eid="qd_C42">玄幻</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="21" data-subtypeid="73"
+                                            href="//www.qidian.com/all/chanId21-subCateId73/" data-eid="qd_B61">异世大陆</a><em>|</em><span>完本</span>
+                                    </p>
+                                    <p class="intro">
+                                        在夏族的安阳行省，有一个很小很不起眼的领地，叫——雪鹰领！故事，就从这里开始！**继《莽荒纪》《吞噬星空》《九鼎记》《盘龙》《星辰变》《寸芒》《星峰传说》后，番茄的第八本小说！ </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/3513193/685192131/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="3513193"
+                                                         data-cid="//vipreader.qidian.com/chapter/3513193/685192131/">最新更新
+                                        番茄新书《宇宙职业选手》已经正式发布！</a><em>&#183;</em><span>2021-11-25 10:58</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100304;&#100297;&#100300;&#100301;&#100302;&#100302;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/3513193/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="3513193">书籍详情</a> <a
+                                            class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                            data-bookid="3513193" data-bid="3513193">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="15">
+                                <div class="book-img-box"><span class="rank-tag no75 ">75<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1015990091/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1015990091"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1015990091/150.webp"
+                                        alt="烂柯棋缘在线阅读"></a></div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1015990091/"
+                                                                  target="_blank" data-eid="qd_C40"
+                                                                  data-bid="1015990091" title="烂柯棋缘最新章节在线阅读">烂柯棋缘</a>
+                                </h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/12697120/" target="_blank"
+                                            data-eid="qd_C41">真费事</a><em>|</em><a href="//www.qidian.com/xianxia"
+                                                                                  target="_blank"
+                                                                                  data-eid="qd_C42">仙侠</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="22" data-subtypeid="20101"
+                                            href="//www.qidian.com/all/chanId22-subCateId20101/"
+                                            data-eid="qd_B61">古典仙侠</a><em>|</em><span>完本</span></p>
+                                    <p class="intro">
+                                        烂柯旁棋局落叶，老树间对弈无人兴所致天元一子，再回首山海苍茫……一觉醒来，计缘成了一个破旧山神庙中的半瞎乞丐。真人一柄剑，神棍一张嘴，就是计缘在这个可怕的世界安身立足的根本。——— </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1015990091/736949902/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1015990091"
+                                                         data-cid="//vipreader.qidian.com/chapter/1015990091/736949902/">最新更新
+                                        12月1日番外活动</a><em>&#183;</em><span>2022-11-25 18:43</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100304;&#100303;&#100303;&#100295;&#100301;&#100303;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1015990091/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1015990091">书籍详情</a>
+                                        <a class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                           data-bookid="1015990091" data-bid="1015990091">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="16">
+                                <div class="book-img-box"><span class="rank-tag no76 ">76<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1034360760/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1034360760"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1034360760/150.webp"
+                                        alt="深海余烬在线阅读"></a></div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1034360760/"
+                                                                  target="_blank" data-eid="qd_C40"
+                                                                  data-bid="1034360760" title="深海余烬最新章节在线阅读">深海余烬</a>
+                                </h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/4362948/" target="_blank"
+                                            data-eid="qd_C41">远瞳</a><em>|</em><a href="//www.qidian.com/kehuan"
+                                                                                 target="_blank"
+                                                                                 data-eid="qd_C42">科幻</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="9" data-subtypeid="25"
+                                            href="//www.qidian.com/all/chanId9-subCateId25/"
+                                            data-eid="qd_B61">未来世界</a><em>|</em><span>连载</span></p>
+                                    <p class="intro">
+                                        在那一天，浓雾封锁了一切。在那一天，他成为了一艘幽灵船的船长。在那一天，他跨过浓雾，直面了一个被彻底颠覆而又支离破碎的世界——昔日的秩序已经荡然无存，奇诡的异象主宰着文明社会之外的 </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1034360760/775796078/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1034360760"
+                                                         data-cid="//vipreader.qidian.com/chapter/1034360760/775796078/">最新更新
+                                        第七百零二章 灵界汇合</a><em>&#183;</em><span>2023-12-13 07:10</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100304;&#100298;&#100301;&#100300;&#100295;&#100303;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1034360760/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1034360760">书籍详情</a>
+                                        <a class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                           data-bookid="1034360760" data-bid="1034360760">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="17">
+                                <div class="book-img-box"><span class="rank-tag no77 ">77<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1003667321/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1003667321"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1003667321/150.webp" alt="美食供应商在线阅读"></a>
+                                </div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1003667321/"
+                                                                  target="_blank" data-eid="qd_C40"
+                                                                  data-bid="1003667321" title="美食供应商最新章节在线阅读">美食供应商</a>
+                                </h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/7746844/" target="_blank"
+                                            data-eid="qd_C41">会做菜的猫</a><em>|</em><a href="//www.qidian.com/dushi"
+                                                                                    target="_blank"
+                                                                                    data-eid="qd_C42">都市</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="4" data-subtypeid="12"
+                                            href="//www.qidian.com/all/chanId4-subCateId12/"
+                                            data-eid="qd_B61">都市生活</a><em>|</em><span>完本</span></p>
+                                    <p class="intro">
+                                        “在遥远的东方，存在着一个数次拒绝了米其林三星评价的奇怪小店。那里价格昂贵，一碗配汤蛋炒饭288RMB，哦忘了还有一碟泡菜，但就算是这样也有很多人排队等候。那里不接受预定，只接受本 </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1003667321/681518563/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1003667321"
+                                                         data-cid="//vipreader.qidian.com/chapter/1003667321/681518563/">最新更新
+                                        新书发布《重生后的我竟能听到系统对话》</a><em>&#183;</em><span>2021-10-30 19:32</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100304;&#100298;&#100301;&#100300;&#100297;&#100300;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1003667321/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1003667321">书籍详情</a>
+                                        <a class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                           data-bookid="1003667321" data-bid="1003667321">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="18">
+                                <div class="book-img-box"><span class="rank-tag no78 ">78<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1264634/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1264634"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1264634/150.webp" alt="仙逆在线阅读"></a>
+                                </div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1264634/" target="_blank"
+                                                                  data-eid="qd_C40" data-bid="1264634"
+                                                                  title="仙逆最新章节在线阅读">仙逆</a></h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/4362120/" target="_blank"
+                                            data-eid="qd_C41">耳根</a><em>|</em><a href="//www.qidian.com/xianxia"
+                                                                                 target="_blank"
+                                                                                 data-eid="qd_C42">仙侠</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="22" data-subtypeid="44"
+                                            href="//www.qidian.com/all/chanId22-subCateId44/" data-eid="qd_B61">幻想修仙</a><em>|</em><span>完本</span>
+                                    </p>
+                                    <p class="intro">
+                                        顺为凡，逆则仙，只在心中一念间…仙逆动画，9月25日起每周一10:00腾讯视频火热播出，VIP抢先看2集；相约在动画中重新见证王林的一世执着！ </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1264634/36495782/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1264634"
+                                                         data-cid="//vipreader.qidian.com/chapter/1264634/36495782/">最新更新
+                                        第十三卷 灯火阑珊 第2088章 蓦然回首（结局）</a><em>&#183;</em><span>2012-01-08 17:17</span></p>
+                                </div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100304;&#100301;&#100302;&#100297;&#100303;&#100297;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1264634/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1264634">书籍详情</a> <a
+                                            class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                            data-bookid="1264634" data-bid="1264634">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="19">
+                                <div class="book-img-box"><span class="rank-tag no79 ">79<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1033498464/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1033498464"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1033498464/150.webp" alt="请公子斩妖在线阅读"></a>
+                                </div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1033498464/"
+                                                                  target="_blank" data-eid="qd_C40"
+                                                                  data-bid="1033498464" title="请公子斩妖最新章节在线阅读">请公子斩妖</a>
+                                </h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/430044849/" target="_blank"
+                                            data-eid="qd_C41">裴不了</a><em>|</em><a href="//www.qidian.com/xianxia"
+                                                                                  target="_blank"
+                                                                                  data-eid="qd_C42">仙侠</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="22" data-subtypeid="44"
+                                            href="//www.qidian.com/all/chanId22-subCateId44/" data-eid="qd_B61">幻想修仙</a><em>|</em><span>完本</span>
+                                    </p>
+                                    <p class="intro">
+                                        【无厘头】【无节操】【无套路】……巍巍人间，九天十地。花花世界，快乐修仙。当楚梁睁开眼发现自己成为了一名蜀山派弟子，并身怀一尊奇异宝塔……从此便踏上了一条不曾设想的道路。三十六峰晨 </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1033498464/771723038/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1033498464"
+                                                         data-cid="//vipreader.qidian.com/chapter/1033498464/771723038/">最新更新
+                                        花烛 【楚姜番外】</a><em>&#183;</em><span>2023-11-06 19:08</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100298;&#100306;&#100306;&#100302;&#100300;&#100302;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1033498464/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1033498464">书籍详情</a>
+                                        <a class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                           data-bookid="1033498464" data-bid="1033498464">加入书架</a></p></div>
+                            </li>
+                            <li data-rid="20">
+                                <div class="book-img-box"><span class="rank-tag no80 ">80<cite></cite></span> <a
+                                        href="//www.qidian.com/book/1032982789/" target="_blank" data-eid="qd_C39"
+                                        data-bid="1032982789"><img
+                                        src="//bookcover.yuewen.com/qdbimg/349573/1032982789/150.webp"
+                                        alt="我家娘子，不对劲在线阅读"></a></div>
+                                <div class="book-mid-info"><h2><a href="//www.qidian.com/book/1032982789/"
+                                                                  target="_blank" data-eid="qd_C40"
+                                                                  data-bid="1032982789" title="我家娘子，不对劲最新章节在线阅读">我家娘子，不对劲</a>
+                                </h2>
+                                    <p class="author"><img
+                                            src="//qdfepccdn.qidian.com/www.qidian.com/images/user.bcb60..png"><a
+                                            class="name" href="//my.qidian.com/author/430086548/" target="_blank"
+                                            data-eid="qd_C41">一蝉知夏</a><em>|</em><a href="//www.qidian.com/2cy"
+                                                                                   target="_blank"
+                                                                                   data-eid="qd_C42">轻小说</a><i>&#183;</i><a
+                                            class="go-sub-type" data-typeid="12" data-subtypeid="60"
+                                            href="//www.qidian.com/all/chanId12-subCateId60/" data-eid="qd_B61">原生幻想</a><em>|</em><span>完本</span>
+                                    </p>
+                                    <p class="intro">
+                                        一觉醒来。洛青舟成了大炎帝国成国府洛家的一个小小庶子。为帮洛家二公子悔婚，洛青舟被迫入赘，娶了一个据说不会说话不会笑的傻子新娘。直到拜完天地，洞房花烛夜后，他才突然发现：“我家娘子 </p>
+                                    <p class="update"><a href="//www.qidian.com/chapter/1032982789/771489042/"
+                                                         target="_blank" data-eid="qd_C43" data-bid="1032982789"
+                                                         data-cid="//vipreader.qidian.com/chapter/1032982789/771489042/">最新更新
+                                        新书《明日拜堂》已发布</a><em>&#183;</em><span>2023-11-03 17:51</span></p></div>
+                                <div class="book-right-info">
+                                    <div class="total">
+                                        <p><span><style>@font-face {
+                                            font-family: cEjsIbQN;
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.eot?') format('eot');
+                                            src: url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.woff') format('woff'), url('https://qidian.gtimg.com/qd_anti_spider/cEjsIbQN.ttf') format('truetype');
+                                        }
+
+                                        .cEjsIbQN {
+                                            font-family: 'cEjsIbQN' !important;
+                                            display: initial !important;
+                                            color: inherit !important;
+                                            vertical-align: initial !important;
+                                        }</style><span class="cEjsIbQN">&#100301;&#100298;&#100306;&#100304;&#100302;&#100298;&#100304;</span></span>收藏
+                                        </p>
+                                    </div>
+                                    <p class="btn"><a class="red-btn" href="//www.qidian.com/book/1032982789/"
+                                                      target="_blank" data-eid="qd_C37" data-bid="1032982789">书籍详情</a>
+                                        <a class="blue-btn add-book" href="javascript:" data-eid="qd_C38"
+                                           data-bookid="1032982789" data-bid="1032982789">加入书架</a></p></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="page-box cf" data-eid="qd_C44">
+                <div class="pagination fr" id="page-container" data-page="4" data-pagemax="5">
+
+
+                    <div class="lbf-pagination">
+                        <ul class="lbf-pagination-item-list">
+
+                            <li class="lbf-pagination-item"><a href="//www.qidian.com/rank/collect/page3/"
+                                                               class="lbf-pagination-prev ">&lt;</a></li>
+
+                            <li class="lbf-pagination-item"><a data-page="1" href="//www.qidian.com/rank/collect/"
+                                                               class="lbf-pagination-page  ">1</a></li>
+
+
+                            <li class="lbf-pagination-item"><a data-page="2" href="//www.qidian.com/rank/collect/page2/"
+                                                               class="lbf-pagination-page  ">2</a></li>
+
+                            <li class="lbf-pagination-item"><a data-page="3" href="//www.qidian.com/rank/collect/page3/"
+                                                               class="lbf-pagination-page  ">3</a></li>
+
+                            <li class="lbf-pagination-item"><a data-page="4" href="//www.qidian.com/rank/collect/page4/"
+                                                               class="lbf-pagination-page  lbf-pagination-current">4</a>
+                            </li>
+
+                            <li class="lbf-pagination-item"><a data-page="5" href="//www.qidian.com/rank/collect/page5/"
+                                                               class="lbf-pagination-page  ">5</a></li>
+
+
+                            <li class="lbf-pagination-item"><a href="javascript:;" class="lbf-pagination-next ">&gt;</a>
+                            </li>
+
+                        </ul>
+                        <script>
+                            function setParam(param, paramVal, url, customHost) {
+                                customHost = customHost.replace(/\/*$/, "");
+                                if (!url) {
+                                    url = "javascript:;";
+                                    return url
+                                }
+                                url = url.replace(/\?[\s\S]+?(?=(#|$))/, "");
+                                var theAnchor = null;
+                                var newAdditionalURL = "";
+                                var baseURL = "";
+                                if (url === customHost) {
+                                    baseURL = customHost
+                                }
+                                var additionalURL = url.replace(customHost + "/", "");
+                                var temp = "";
+                                if (additionalURL) {
+                                    var tmpAnchor = additionalURL.split("#");
+                                    var TheParams = tmpAnchor[0];
+                                    theAnchor = tmpAnchor[1];
+                                    if (theAnchor) {
+                                        additionalURL = TheParams
+                                    }
+                                    additionalURL = additionalURL.replace(/((^\/*)|(\/*$))/g, "");
+                                    var queryTempArray = additionalURL.split("-");
+                                    for (o = 0; o < queryTempArray.length; o++) {
+                                        if (queryTempArray[o].indexOf(param) === -1) {
+                                            newAdditionalURL += temp + queryTempArray[o];
+                                            if (customHost.indexOf("/rank") > 0) {
+                                                temp = queryTempArray[o].match(/(month|year)/) ? "-" : "/";
+                                            } else {
+                                                temp = "-"
+                                            }
+                                        }
+                                    }
+                                } else {
+                                    var tmpAnchor = baseURL.split("#");
+                                    var TheParams = tmpAnchor[0];
+                                    theAnchor = tmpAnchor[1];
+                                    if (TheParams) {
+                                        baseURL = TheParams
+                                    }
+                                }
+                                if (theAnchor) {
+                                    paramVal += "#" + theAnchor
+                                }
+                                if (paramVal == 1) {
+                                    var rowsTxt = temp
+                                } else {
+                                    var rowsTxt = (temp + param + paramVal + "/").replace(/[-/]?pagek\/*(?=[^0])/, "/");
+                                }
+                                return (customHost + "/" + newAdditionalURL + rowsTxt).replace(/\/*$/, "/")
+                            }
+
+                            function PAGINATION_goInput() {
+                                location.href = setParam("page", document.getElementById("PAGINATION-INPUT").value, "//www.qidian.com/rank/collect/", "//www.qidian.com/rank/collect")
+                            }
+                        </script>
+
+                        <div class="lbf-pagination-jump"><input id="PAGINATION-INPUT" type="text"
+                                                                class="lbf-pagination-input" value="4"/><a
+                                href="javascript:;" id="PAGINATION-BUTTON" onclick=PAGINATION_goInput()
+                                class="lbf-pagination-go">GO</a></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="footer">
+    <div class="box-center cf">
+        <div class="footer-menu dib-wrap"><a href="//www.qidian.com/about/intro" target="_blank">关于起点</a> <a
+                href="//www.qidian.com/about/contact" target="_blank">联系我们</a> <a href="//join.yuewen.com"
+                                                                                  rel="nofollow"
+                                                                                  target="_blank">加入我们</a> <a
+                href="//www.qidian.com/help" target="_blank">帮助与客服</a> <a href="//jubao.yuewen.com" rel="nofollow"
+                                                                          target="_blank">举报中心</a> <a
+                href="//security.tencent.com/" rel="nofollow" target="_blank">漏洞提交</a></div>
+        <div class="copy-right"><p><span>Copyright &copy; 2002-2023 www.qidian.com All Rights Reserved 版权所有 上海玄霆娱乐信息科技有限公司</span>
+        </p>
+            <p><a target="_blank"
+                  href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011502001275"><img
+                    src="https://imgservices-1252317822.image.myqcloud.com/image/20191223/o5lajshfcw.png"/><span>沪公网安备 31011502001275号</span></a><span>增值电信业务经营许可证：沪B2-20080046 互联网ICP备案号：</span><a
+                    href="http://beian.miit.gov.cn" target="_blank">沪B2-20080046-1</a><span>&nbsp;出版经营许可证：新出发沪批字第 U3718 号</span>
+            </p>
+            <p><span>网络文化经营许可证：沪网文〔2021〕0374-020号 网络出版服务许可证：（署）网出证（沪）字第055号&nbsp;</span><a target="_blank"
+                                                                                           href="https://imgservices-1252317822.image.myqcloud.com/coco/s11062023/1a107fbb.puhu0x.png">营业执照</a>&nbsp;&nbsp;<a
+                    target="_blank"
+                    href="https://imgservices-1252317822.image.myqcloud.com/coco/s11062023/655b2b94.f2jl6x.png"><span>互联网宗教信息服务许可证 编号：沪（2022）0000022</span></a>
+            </p>
+            <p>请所有作者发布作品时务必遵守国家互联网信息管理办法规定，我们拒绝任何色情小说，一经发现，即作删除！举报电话：010-59357051</p>
+            <p>本站所收录的作品、社区话题、用户评论、用户上传内容或图片等均属用户个人行为。如前述内容侵害您的权益，欢迎举报投诉，一经核实，立即删除，本站不承担任何责任</p>
+            <p>联系方式 总机 021-61870500 地址：中国（上海）自由贸易试验区环科路999弄1号706室</p></div>
+    </div>
+</div>
+</div>
+<script>var g_data = {};
+g_data.adBanner = {
+    adTop: {
+        "title": "传奇霸主",
+        "adImgUrl": "https://img1.qidian.com/upload/gamesy/2022/02/14/20220214161349tbwcaz84rz.jpg",
+        "adCategoryName": "广告",
+        "colorType": 0,
+        "type": 1,
+        "isAdv": 1,
+        "adJumpUrl": "https://game.qidian.com/CpGameHome/Ad/directLogin/name/cqbz/way/1?qd_game_key=cqbz1200x60.jpg&qd_dd_p1=138442",
+        "hasAd": 1
+    }
+}, g_data.adBanner.adTop && (g_data.adBanner.adTop.eid = "qd_C67"), g_data.envType = "pro", g_data.isZht = false, g_data.pageId = "qd_P_rank_05", g_data.domainPreFix = "", g_data.domainSearch = "www.qidian.com/soushu"</script>
+</body>
+</html>
